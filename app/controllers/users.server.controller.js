@@ -11,7 +11,7 @@ exports.create = function(req, res, next) {
 			res.json(user);
 		}
 	});
-}
+};
 
 exports.list = function(req, res, next) {
 	User.find({}, function(err, users) {
@@ -21,11 +21,11 @@ exports.list = function(req, res, next) {
 			res.json(users);
 		}
 	});
-}
+};
 
 exports.read = function(req, res) {
 	res.json(req.user);
-}
+};
 
 exports.userByID = function(req, res, next, id) {
 	User.findOne({
@@ -38,7 +38,7 @@ exports.userByID = function(req, res, next, id) {
 			next();
 		}
 	});
-}
+};
 
 exports.update = function(req, res, next) {
 	User.findByIdAndUpdate(req.user.id, req.body, function(err, user) {
@@ -47,8 +47,8 @@ exports.update = function(req, res, next) {
 		} else {
 			res.json(user);
 		}
-	})
-}
+	});
+};
 
 exports.delete = function(req, res, next) {
 	req.user.remove(function(err) {
@@ -57,8 +57,8 @@ exports.delete = function(req, res, next) {
 		} else {
 			res.json(req.user);
 		}
-	})
-}
+	});
+};
 
 var getErrorMessage = function(err) {
 	var message = "";
@@ -80,7 +80,7 @@ var getErrorMessage = function(err) {
 	}
 
 	return message;
-}
+};
 
 exports.renderSignin = function(req, res, next) {
 	if (!req.user) {
@@ -91,7 +91,7 @@ exports.renderSignin = function(req, res, next) {
 	} else {
 		return res.redirect("/");
 	}
-}
+};
 
 exports.renderSignup = function(req, res, next) {
 	if (!req.user) {
@@ -102,7 +102,7 @@ exports.renderSignup = function(req, res, next) {
 	} else {
 		return res.redirect("/");
 	}
-}
+};
 
 exports.signup = function(req, res, next) {
 	if (!req.user) {
@@ -130,7 +130,7 @@ exports.signup = function(req, res, next) {
 exports.signout = function(req, res) {
 	req.logout();
 	res.redirect("/");
-}
+};
 
 exports.saveOAuthUserProfile = function(req, profile, done) {
 
@@ -165,4 +165,14 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
 			}
 		}
 	});
-}
+};
+
+exports.requiresLogin = function(req, res, next) {
+	if (!req.isAuthenticated()) {
+		return res.status(401).send({
+			message: "User is not logged in"
+		});
+	}
+
+	next();
+};
