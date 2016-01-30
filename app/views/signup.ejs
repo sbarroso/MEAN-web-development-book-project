@@ -4,7 +4,9 @@
 	<title>    <%=title %>  </title>
 </head> 
 <body>  
-	<% for(var i in messages) { %>    <div class="flash"><%= messages[i] %></div>  <% } %>  
+	<% for(var i in messages) { %>
+		<div class="flash"><%= messages[i] %></div>
+	<% } %>  
 	<form action="/signup" method="post">    
 		<div>     
 		 <label>First Name:</label>    

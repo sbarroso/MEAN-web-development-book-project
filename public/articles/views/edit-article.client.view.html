@@ -1,5 +1,4 @@
-<section data-ng-controller="ArticlesController" data-nginit="
-findOne()">
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
     <h1>Edit Article</h1>
     <form data-ng-submit="update()" novalidate>
         <div>
@@ -11,7 +10,8 @@ findOne()">
         <div>
             <label for="content">Content</label>
             <div>
-                <textarea data-ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+            <textarea data-ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content">
+            </textarea>
             </div>
         </div>
         <div>

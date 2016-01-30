@@ -4,19 +4,20 @@
 		<title><%= title %></title>
 	</head>
 	<body>
-		<% if ( userFullName ) { %>   
-			<h2>Hello <%=userFullName%> </h2>         
+<!--
+		<% if ( user ) { %>   
+			<h2>Hello <%= JSON.parse(user).firstName%> </h2>         
 			<a href="/signout">Sign out</a>      
-		<% } else { %>        
+		<% } else { %>
 			<a href="/signup">Signup</a>        
 			<a href="/signin">Signin</a>    
-		<% } %>    
+		<% } %>
 		<br>
 		<img src="img/logo.png" alt="Logo">
+-->
 
 		<section ng-view></section>
-
-		<section ng-include="'example/views/example.client.view.html'"></section>
+		<!--<section ng-include="'example/views/example.client.view.html'"></section>-->
 
 		<script type="text/javascript">
 			window.user = <%-user || 'null' %>
@@ -24,7 +25,7 @@
 
 		<script type="text/javascript" src="/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
-		<script type="text/javascript" src="/lib/angular-resource/angularresource.js"></script>
+		<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
 
 		<script type="text/javascript" src="/articles/articles.client.module.js"></script>
 		<script type="text/javascript" src="/articles/controllers/articles.client.controller.js"></script>

@@ -33,7 +33,7 @@ angular.module("articles").controller("ArticlesController", ['$scope', '$routePa
 		});
 	};
 
-	$scope.delete = function() {
+	$scope.delete = function(article) {
 		if (article) {
 			article.$remove(function() {
 				for (var i in $scope.articles) {

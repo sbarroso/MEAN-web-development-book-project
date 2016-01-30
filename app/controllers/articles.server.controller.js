@@ -1,5 +1,5 @@
-var moongose = require('moongose'),
-	Article = moongose.model('Article');
+var mongoose = require('mongoose'),
+	Article = mongoose.model('Article');
 
 
 var getErrorMessage = function(err) {

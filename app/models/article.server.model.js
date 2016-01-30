@@ -1,5 +1,5 @@
-var moongose = require('moongose'),
-	Schema = moongose.Schema;
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
 	created: {
@@ -23,4 +23,4 @@ var ArticleSchema = new Schema({
 	}
 });
 
-moongose.model("Article", ArticleSchema);
+mongoose.model("Article", ArticleSchema);
