@@ -36,7 +36,7 @@ module.exports = function(db) {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret,
-		store: MongoStore
+		store: mongoStore
 	}));
 
 	app.set("views","./app/views");
