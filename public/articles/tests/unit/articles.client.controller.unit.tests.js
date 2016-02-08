@@ -33,7 +33,7 @@ describe('Testing Articles Controller', function() {
 			});
 
 			var sampleArticles = [sampleArticle];
-			$httpBackend.expectGET('api/articles').respond(sampleArticles);
+			$httpBackend.expectGET('/api/articles').respond(sampleArticles);
 			_scope.find();
 			$httpBackend.flush();
 			expect(_scope.articles).toEqualData(sampleArticles);
