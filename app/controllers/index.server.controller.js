@@ -11,4 +11,4 @@ exports.render = function(req, res) {
 		title: "Hello World",
 		user: JSON.stringify(req.user)
 	});
-}
+};

@@ -61,4 +61,4 @@ module.exports = function(app) {
 		failureRedirect: '/signin', 
 		successRedirect: '/'
 	})); 
-}
+};

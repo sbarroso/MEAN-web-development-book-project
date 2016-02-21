@@ -84,7 +84,7 @@ UserSchema.pre("save", function(next) {
 
 UserSchema.statics.findOneByUsername = function(username, callback) {
 	this.findOne({username: new RegExp(username, "i")}, callback);
-}
+};
 
 UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	var _this = this;
@@ -107,11 +107,11 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 
 UserSchema.methods.authenticate = function(password) {
 	return this.password === this.hashPassword(password);
-}
+};
 
 UserSchema.methods.hashPassword = function(password) {
 	return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString("base64");
-}
+};
 
 UserSchema.post("save", function(next) {
 	if (this.isNew) {
